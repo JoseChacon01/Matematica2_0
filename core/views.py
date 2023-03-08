@@ -10,6 +10,7 @@ from django.contrib.auth.forms import UserCreationForm #Registro: UserCreationFo
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import Usuario
+from .forms import UsuarioForm
 
 # Create your views here.
 
@@ -17,7 +18,7 @@ def home (resquest):
     return render(resquest, "index.html")
 
 @login_required 
-@permission_required('core.Administrador')
+#@permission_required('core.Administrador')
 def perfil (resquest):
     return render(resquest, "perfil.html")
 
@@ -65,3 +66,14 @@ def cadastro_manual(request):
 def desconectar(request):
     logout(request)
     return render(request, 'index.html')     
+
+
+def registro(request):
+    form = UsuarioForm(request.POST or None) #Inplemantando o registro utilizando a class criada emm 'forms.py'
+    if form.is_valid(): #Ao realizar o registro, automaticamente o usuário será redirecionado para a página de login:
+        form.save()
+        return redirect('login')
+    contexto = {
+        'form': form
+        }
+    return render(request, 'registro.html', contexto)

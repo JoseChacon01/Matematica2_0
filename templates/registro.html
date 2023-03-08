@@ -1,0 +1,104 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="shortcut icon" href="/static/img/ws-logo1.png" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/style.css/' %}">
+    <style type="text/css">
+
+        .login_body {
+            padding: 60px;
+            z-index: 90;
+            position: relative;
+            max-width: 450rem;
+            height: 1050px;   
+            margin-left: 50%;
+            background-color: rgb(0, 0, 0, 0.75);
+            border-radius: 10px;
+            box-sizing: border-box;
+            transform: translateX(-50%);
+        }
+     </style>
+</head>
+<body>
+    
+
+
+<!--
+    {% if user.is_authenticated %}
+    <p><a href="{% url 'painel' %}">Voltar</a></p>
+    {% else %}
+    <p><a href="{% url 'home' %}">Voltar</a></p>
+    {% endif %}
+-->
+    <div class="login_body">
+        <div class="login_box">
+            <h2>Cadastro</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="input_box">
+                    <label for="nomecompleto"><strong>Nome Completo</strong></label><br>
+                    {{ form.nome }}
+                </div>
+                
+                <div class="input_box">
+                    <label for="usuario"><strong>Usuário</strong></label><br>
+                    {{ form.username }}
+                </div>
+                
+                <div class="input_box">
+                    <label for="cpf"><strong>CPF</strong></label><br>
+                    {{ form.cpf }}
+                </div>
+
+                <div class="input_box">
+                    <label for="categoria"><strong>E-mail</strong></label><br>
+                    {{ form.email }}
+                </div>
+
+   
+                <div class="input_box">
+                    <label for="categoria"><strong>Idade</strong></label><br>
+                    {{ form.idade }}
+                </div>
+
+                <!-- <div class="input_box">
+                    <label for="categoria"><strong>Categoria de Usuário</strong></label><br>
+                    {{form.categoria}}
+                    <select id="categoria" required="">
+                        <option selected="" disabled="" value="">Selecione</option>
+                        <option>Admin</option>
+                      </select> 
+                </div> -->
+
+                <div class="input_box">
+                    <label for="categoria"><strong>Senha</strong></label><br>
+                    {{ form.password1 }}
+                </div>
+
+                <div class="input_box">
+                    <label for="categoria"><strong>Confirmar senha</strong></label><br>
+                    {{ form.password2 }}
+                </div>
+
+
+    <input type="submit" value="Cadastrar">
+   
+            </form>
+
+
+            <div class="login_footer">
+                <div class="terms">
+                    <p>Esta página é protegida pelo Google reCAPTCHA para garantir que você não é um robô. <a href="#">Saiba mais</a></p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
