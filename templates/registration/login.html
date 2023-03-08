@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="shortcut icon" href="/static/img/ws-logo1.png" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="#">
+                <img src="/static/img/ws-logo1.png" alt="Logo-XP-Water">
+            </a>
+        </div>
+    </div>
+
+    <div class="login_body">
+        <div class="login_box">
+            <h2>Entrar</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="input_box">
+                    <input required type="text" name="usuario" placeholder="CPF" required placeholder="CPF">
+                </div>
+
+                <div class="input_box">
+                    <input required type="password" name="senha" placeholder="Senha">
+                </div>
+
+                <div>
+                    <button class="submit">
+                        Entrar
+                    </button>
+                </div>
+            </form>
+
+            <div class="support">
+                <div class="remember">
+                    <span><input type="checkbox" style="margin: 0;padding: 0; height: 13px;"></span>
+                    <span>Lembre-se de mim</span>
+                </div>
+                <div class="help">
+                    <a href="#">
+                        Esqueci minha senha
+                    </a>
+                </div>
+            </div>
+
+            <div class="login_footer">
+                <div class="sign_up">
+                    <p>Não tem uma conta? 
+
+                    <a  href="https://web.whatsapp.com/send?phone=5584986361992" target="_blank"> Fale Conosco! 
+                        <!--instruirá o navegador a criar uma nova guia ou janela do navegador quando o usuário clicar no link.-->
+                      </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
