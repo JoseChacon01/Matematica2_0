@@ -15,10 +15,10 @@ class Usuario(AbstractUser):
 
     USERNAME_FIELD = 'cpf' 
 
-    # class Meta:  
-    #     permissions = [
-    #         ("Administrador", "Utilização das funções gerais do sistema")
-    #     ]
+    class Meta:  
+         permissions = [
+             ("Administrador", "Utilização das funções gerais do sistema")
+         ]
 
 class Acervo_Documentos(models.Model):
     data_acervos_docs = models.DateTimeField('Data_Acervo_Docs')

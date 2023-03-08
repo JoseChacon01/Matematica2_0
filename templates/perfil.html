@@ -12,6 +12,10 @@
     <p>Olá {{ user.username }}</p>
     <p>E-mail: {{ user.email }}</p>
     
+    {% if perms.core.Administrador %}
+    <h3>Conteudo visevel apenas para o administrador</h3>
+    </li>
+    {% endif %}
     
 
     <p><a href="{% url 'home' %}">voltar</a></p>

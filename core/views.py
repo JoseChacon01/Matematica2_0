@@ -17,6 +17,7 @@ def home (resquest):
     return render(resquest, "index.html")
 
 @login_required 
+@permission_required('core.Administrador')
 def perfil (resquest):
     return render(resquest, "perfil.html")
 
@@ -53,10 +54,8 @@ def cadastro_manual(request):
         is_superuser=False)
         
 
-    # permission1 = Permission.objects.get(codename='permissao_adm_1')
-    # permission2 = Permission.objects.get(codename='permissao_adm_2')
-    # permission3 = Permission.objects.get(codename='permissao_adm_3')
-    # user.user_permissions.add(permission1, permission2, permission3)
+    permission1 = Permission.objects.get(codename='Administrador')
+    user.user_permissions.add(permission1)
 
 
     user.save()
